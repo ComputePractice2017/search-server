@@ -4,8 +4,8 @@ import (
 	"log"
 	"github.com/gorilla/mux"
 	"net/http"
-	"./api"
-	"./model"
+	"github.com/ComputePractice2017/search-server/api"
+	"github.com/ComputePractice2017/search-server/model"
 )
 
 func main() {

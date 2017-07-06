@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"encoding/json"
 	"log"
-	"../model"
+	"github.com/ComputePractice2017/search-server/model"
 	"github.com/gorilla/mux"
 )
 

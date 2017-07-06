@@ -2,6 +2,8 @@ package model
 
 import (
 	"strings"
+	"os"
+	"log"
 
 	r "gopkg.in/gorethink/gorethink.v3"
 )
@@ -20,9 +22,15 @@ type Document struct {
 var session *r.Session
 
 func InitSession() error {
+	dbaddress := os.Getenv("RETHINKDB_HOST")
+	if dbaddress == "" {
+		dbaddress = "localhost"
+	}
+
+	log.Printf("RETHINKDB_HOST: %s\n", dbaddress)
 	var err error
 	session, err = r.Connect(r.ConnectOpts{
-		Address: "localhost",
+		Address: dbaddress,
 	})
 	if err != nil {
 		return err
